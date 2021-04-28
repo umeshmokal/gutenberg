@@ -1,0 +1,43 @@
+/* Element selectors */
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #5E56E7;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+}
+
+/* Class Selectors */
+.container-fluid {
+    background-color: #F8F7FF;
+    width: 100%;
+    margin: 9% 0;
+    padding: 0 13%;
+    text-align: left;
+}
+
+.category-container {
+    display: flex;
+    min-width: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    border-radius: .25rem;
+    padding: 0 10px;
+    height: 3.125rem;
+}
+
+.book-category-body {
+    flex: 1 auto;
+}
+
+.book-category-name {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}

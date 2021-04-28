@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h1>Gutenberg Project</h1>
+  <h2>A social cataloging website that allows you to freely search its database of books, annotations, and reviews.</h2>
+  <div class="row pt-5">
+    <div (click)="selectCategory(item)" *ngFor="let item of categories" class="col-lg-6 col-md-6 col-sm-6 mb-3">
+      <div class="category-container">
+        <div class="book-category-body">
+          <img class="image" src="/assets/images/Arrow.png" alt="image">
+          <p class="book-category-name">{{item.name | uppercase}}</p>
+        </div>
+        <div>
+          <img src="/assets/images/Arrow.png" alt="arrow-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
