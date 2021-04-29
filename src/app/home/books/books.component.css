@@ -29,7 +29,7 @@
 
 .form .fa-search {
     position: absolute;
-    top: 20px;
+    top: 11px;
     left: 20px;
     color: #9ca3af
 }
@@ -37,41 +37,52 @@
 .form span {
     position: absolute;
     right: 17px;
-    top: 13px;
+    top: 6px;
     padding: 2px;
-    border-left: 1px solid #d1d5db
+    border-left: 1px solid #d1d5db;
 }
 
 .left-pan {
-    padding-left: 7px
+    padding-left: 7px;
 }
 
 .left-pan i {
-    padding-left: 10px
+    padding-left: 10px;
 }
 
 .form-input {
-    height: 55px;
+    height: 40px;
     text-indent: 33px;
-    border-radius: 10px
+    background-color: #F0F0F6;
 }
 
 .form-input:focus {
     box-shadow: none;
-    border: none
+    border: 1px solid #5E56E7;
+    border-radius: 4px;
 }
 
 .image{
-    width: 8rem;
+    width: 10.4rem;
     height: 12rem;
   }
 
 .book-title {
     max-height: 3rem;
     overflow-y: hidden;
+    font-weight: 600;
 }
 
 .book-author {
     max-height: 1.3rem;
     overflow-y: hidden;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+}
+
+.card-body {
+    padding: 0;
 }

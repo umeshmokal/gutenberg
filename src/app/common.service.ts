@@ -1,42 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+  genre: String = '';
+  constructor(private http: HttpClient, private router: Router) {
 
-  // httpOptions = {
-  //   // headers?: HttpHeaders | {[header: string]: string | string[]},
-  //   // observe?: 'body' | 'events' | 'response',
-  //   observe : 'body',
-  //   // params?: HttpParams|{[param: string]: string | string[]},
-  //   // reportProgress?: boolean,
-  //   responseType: 'json',
-  // }
-  genre : String = '';
-  constructor(private http: HttpClient, private router : Router) {
-    
   }
 
-   setGenre(genre) {
-     this.genre = genre;
-     this.router.navigate(['books']);
-   }
+  setGenre(genre) {
+    this.genre = genre;
+    this.router.navigate(['books']);
+  }
 
-   getGenre() {
-     return this.genre;
-   }
-   
-   showData(isNext : boolean = false,nextUrl='') {
-     if(!isNext)
-     return this.http.get('http://skunkworks.ignitesol.com:8000/books?mime_type=image%2Fjpeg');
-     else {
+  getGenre() {
+    return this.genre;
+  }
+
+  getBooksData(isNext: boolean = false, nextUrl = '', searchParam = '', genre) {
+    if (!isNext) {
+      if (searchParam) {
+        let params = searchParam.split(' ');
+        console.log(searchParam);
+        return this.http.get('http://skunkworks.ignitesol.com:8000/books?mime_type=image%2Fjpeg&search=' + params[0] + '%20' + params[1] + '&topic=' + genre);
+      }
+      return this.http.get('http://skunkworks.ignitesol.com:8000/books?mime_type=image%2Fjpeg' + '&topic=' + genre);
+    }
+    else {
       return this.http.get(nextUrl);
-     }
-   }
+    }
+  }
 
 }

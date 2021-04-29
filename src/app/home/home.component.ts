@@ -7,40 +7,41 @@ import { CommonService } from '../common.service';
 })
 export class HomeComponent implements OnInit {
 
-  categories = [
+  bookGenres = [
     {
       name : 'Fiction',
       image : 'Flask.png'
     },
     {
       name : 'Drama',
-      image : ''
+      image : 'Drama.png'
     },
     {
       name : 'Humor',
-      image : ''
+      image : 'Humor.png'
     },
     {
       name : 'Politics',
-      image : ''
+      image : 'Politics.png'
     },
     {
       name : 'Philosophy',
-      image : ''
+      image : 'Philosophy.png'
     },
     {
       name : 'History',
-      image : ''
+      image : 'History.png'
     },
     {
       name : 'Adventure',
-      image : ''
+      image : 'Adventure.png'
     }
   ]
   constructor(private commonService : CommonService) { }
   ngOnInit(): void {
   }
 
+  //Get specific genre of books
   selectCategory(item) {
     this.commonService.setGenre(item.name);
   }
