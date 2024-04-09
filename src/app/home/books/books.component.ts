@@ -41,7 +41,7 @@ export class BooksComponent implements OnInit {
       // Time in milliseconds between key events
       , debounceTime(1000)
 
-      // If previous query is diffent from current   
+      // If previous query is diffent from current
       , distinctUntilChanged()
 
       // subscription for response
@@ -55,7 +55,7 @@ export class BooksComponent implements OnInit {
   showBooksData(isNext:boolean = false) {
     this.commonService.getBooksData(isNext,this.nextUrl,this.searchText,this.genre).subscribe(res => {
       console.log(res);
-      if(res && (res['next'] === null && res['previous'] === null)) 
+      if(res && (res['next'] === null && res['previous'] === null))
         this.books = res['results'];
       this.books.push(...res['results']);
       this.nextUrl = res['next'];
@@ -67,19 +67,24 @@ export class BooksComponent implements OnInit {
   }
 
   showBookDetails(item) {
+    console.log("book clicked",item);
     let url = "";
     let formats = item['formats'];
     let keys = Object.keys(formats);
-    keys.forEach(item => {
+    let isBookAvailable = keys.some(item => {
       if(item.includes('text/html')) {
+        console.log("html link");
         url = formats[item];
-        return;
+        return true;
       } else if(item.includes('text/plain')) {
+        console.log("plain link");
         url = formats[item];
-        return;
+        return true;
+      } else {
+        return false;
       }
     });
-    if(url) {
+    if(isBookAvailable) {
       window.open(url, "_blank");
     } else {
       alert('No viewable version available');

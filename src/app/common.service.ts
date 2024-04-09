@@ -25,9 +25,9 @@ export class CommonService {
       if (searchParam) {
         let params = searchParam.split(' ');
         console.log(searchParam);
-        return this.http.get('http://skunkworks.ignitesol.com:8000/books?mime_type=image%2Fjpeg&search=' + params[0] + '%20' + params[1] + '&topic=' + genre);
+        return this.http.get('https://gutendex.com/books?mime_type=image%2Fjpeg&search=' + params[0] + '%20' + params[1] + '&topic=' + genre);
       }
-      return this.http.get('http://skunkworks.ignitesol.com:8000/books?mime_type=image%2Fjpeg' + '&topic=' + genre);
+      return this.http.get('https://gutendex.com/books?mime_type=image%2Fjpeg' + '&topic=' + genre);
     }
     else {
       return this.http.get(nextUrl);
